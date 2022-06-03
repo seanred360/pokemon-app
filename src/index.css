@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: "Futura";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgb(184, 184, 184) 1px,
+    transparent 0
+  );
+  background-size: 15px 10px;
+}
+
+.custom-shape-divider-bottom-1652808131 {
+  /* display: none; */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+  z-index: -1;
+
+  /* @include respond-above(sm) {
+    display: block;
+  } */
+}
+
+.custom-shape-divider-bottom-1652808131 svg {
+  position: relative;
+  display: block;
+  width: calc(109% + 1.3px);
+  height: 192px;
+}
+
+.custom-shape-divider-bottom-1652808131 .shape-fill {
+  fill: #4fcfd9;
+}
