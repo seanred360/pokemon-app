@@ -9,7 +9,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const foundPokemon = data.find((pokemon) => pokemon.id == input);
+    const foundPokemon = data.find((pokemon) => pokemon.id === input);
     setCurrentPokemon(foundPokemon);
     console.log(foundPokemon);
   };
@@ -27,12 +27,12 @@ function App() {
   };
 
   const disableButton = (button) => {
-    if (button == "previous") {
-      if (currentPokemon.id == 1) return true;
+    if (button === "previous") {
+      if (currentPokemon.id === 1) return true;
     }
 
-    if (button == "next") {
-      if (currentPokemon.id == 151) return true;
+    if (button === "next") {
+      if (currentPokemon.id === 151) return true;
     }
 
     return false;
@@ -62,6 +62,7 @@ function App() {
           <img
             className="w-full h-full bg-gradient-to-br from-[#9CF7D8] to-[#4FCFD9] rounded-t-md"
             src={currentPokemon.img}
+            alt="a pokemon"
           />
           <div className="w-full p-6">
             <ul
