@@ -5,13 +5,25 @@ function App() {
   const [data, setData] = useState();
   const [input, setInput] = useState();
   const [currentPokemon, setCurrentPokemon] = useState();
+  const [validationError, setValidationError] = useState();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const foundPokemon = data.find((pokemon) => pokemon.id === input);
+    if (validate(input) == false) {
+      setValidationError("Please input a number between 1-151");
+      return;
+    }
+    const foundPokemon = data.find((pokemon) => pokemon.id === parseInt(input));
     setCurrentPokemon(foundPokemon);
-    console.log(foundPokemon);
+  };
+
+  const handleChange = (userInput) => {
+    if (validate(userInput) === false) {
+      setValidationError("Please input a number between 1-151");
+      return;
+    }
+    setInput(userInput);
   };
 
   const getNextPokemon = () => {
@@ -36,6 +48,20 @@ function App() {
     }
 
     return false;
+  };
+
+  const validate = (userInput) => {
+    if (
+      isNaN(userInput) ||
+      userInput < 1 ||
+      userInput > 151 ||
+      userInput % 1 != 0
+    ) {
+      return false;
+    }
+
+    setValidationError(null);
+    return true;
   };
 
   useEffect(() => {
@@ -104,12 +130,19 @@ function App() {
               className="flex flex-col items-center justify-center mt-6"
               onSubmit={(e) => handleSubmit(e)}
             >
-              <div>
-                <span className="mr-auto">Pokemon ID:</span>
+              <div className="relative flex flex-col w-full">
+                <span className="mr-auto mb-[16px]">Pokemon ID:</span>
+                <span className="absolute top-[24px] mr-auto text-red-500 text-xs font-sans">
+                  {validationError}
+                </span>
                 <input
-                  className="w-full h-[50px] rounded-md bg-[#F1F1F1] shadow-lg mt-3 p-3"
+                  className={
+                    validationError
+                      ? "w-full h-[50px] rounded-md bg-[#F1F1F1] shadow-lg mt-3 p-3 error"
+                      : "w-full h-[50px] rounded-md bg-[#F1F1F1] shadow-lg mt-3 p-3"
+                  }
                   type="text"
-                  onChange={(e) => setInput(e.target.value)}
+                  onChange={(e) => handleChange(e.target.value)}
                   placeholder="Enter a Pokemon ID"
                 />
               </div>

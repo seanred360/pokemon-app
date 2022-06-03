@@ -26,6 +26,14 @@ body {
   background-size: 15px 10px;
 }
 
+button:disabled {
+  opacity: 25%;
+}
+
+.error {
+  outline-color: red;
+}
+
 .custom-shape-divider-bottom-1652808131 {
   /* display: none; */
   position: absolute;
