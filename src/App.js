@@ -10,7 +10,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (validate(input) == false) {
+    if (validate(input) === false) {
       setValidationError("Please input a number between 1-151");
       return;
     }
@@ -55,7 +55,7 @@ function App() {
       isNaN(userInput) ||
       userInput < 1 ||
       userInput > 151 ||
-      userInput % 1 != 0
+      userInput % 1 !== 0
     ) {
       return false;
     }
