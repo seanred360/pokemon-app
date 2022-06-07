@@ -83,13 +83,15 @@ function App() {
   if (!currentPokemon) return null;
   return (
     <div className="h-full">
-      <div className="relative w-screen h-screen min-h-screen p-6 bg-[#9CF7D8]/50 overflow-y-scroll">
-        <div className="max-w-md flex flex-col items-center justify-center mx-auto bg-white rounded-md shadow-xl">
-          <img
-            className="w-full h-full bg-gradient-to-br from-[#9CF7D8] to-[#4FCFD9] rounded-t-md"
-            src={currentPokemon.img}
-            alt="a pokemon"
-          />
+      <div className="main relative w-screen h-screen min-h-screen p-6 bg-[#9CF7D8]/50 overflow-y-scroll bg-primary">
+        <div className="relative z-[10] max-w-md flex flex-col items-center justify-center mx-auto rounded-md shadow-xl bg-white">
+          <div className="w-full h-full bg-gradient-to-br from-[#9CF7D8] to-[#4FCFD9] rounded-t-md">
+            <img
+              className="w-60 h-60 m-auto rounded-t-md"
+              src={currentPokemon.img}
+              alt="a pokemon"
+            />
+          </div>
           <div className="w-full p-6">
             <ul
               className="w-full min-h-[214px] flex flex-col items-left justify-evenly mb-6 p-6

@@ -2,6 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --bg-primary: 255, 255, 255;
+    --bg-secondary: 245, 246, 247;
+    --bg-tertiary: 238, 238, 238;
+
+    --text-primary: 0, 0, 0;
+    --text-secondary: 56, 63, 74;
+    --text-tertiary: 255, 255, 255;
+  }
+
+  .fire {
+    --bg-primary: 255, 0, 0;
+    --bg-secondary: 255, 154, 0;
+    --bg-tertiary: 255, 232, 8;
+
+    --text-primary: 0, 0, 0;
+    --text-secondary: 56, 63, 74;
+    --text-tertiary: 255, 255, 255;
+  }
+}
+
 html,
 body {
   height: 100%;
@@ -17,7 +39,9 @@ body {
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
+}
 
+.main {
   background-image: radial-gradient(
     circle at 1px 1px,
     rgb(184, 184, 184) 1px,
@@ -35,7 +59,6 @@ button:disabled {
 }
 
 .custom-shape-divider-bottom-1652808131 {
-  /* display: none; */
   position: absolute;
   bottom: 0;
   left: 0;
@@ -43,11 +66,7 @@ button:disabled {
   overflow: hidden;
   line-height: 0;
   transform: rotate(180deg);
-  z-index: -1;
-
-  /* @include respond-above(sm) {
-    display: block;
-  } */
+  z-index: 1;
 }
 
 .custom-shape-divider-bottom-1652808131 svg {
